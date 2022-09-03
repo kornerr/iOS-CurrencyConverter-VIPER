@@ -1,11 +1,3 @@
-//
-//  CurrencyService.swift
-//  IBRCurrencyConverter
-//
-//  Created by Ibrakhim Nikishin on 01.05.2018.
-//  Copyright © 2018 Loftymoon. All rights reserved.
-//
-
 import Foundation
 
 struct CurrencyError : Error {

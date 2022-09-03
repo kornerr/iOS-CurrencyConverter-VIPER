@@ -1,6 +1,8 @@
 # Fork updates
 
-Made a couple of changes to build the project under Xcode 14.0.
+* Made minor fixes to build the project with Xcode 14.0
+* Removed copyright notices in Swift files
+* Removed stub AppDelegate methods
 
 # Original
 

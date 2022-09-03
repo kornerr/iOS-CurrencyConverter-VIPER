@@ -1,11 +1,3 @@
-//
-//  CurrencyStorageService.swift
-//  IBRCurrencyConverter
-//
-//  Created by Ibrakhim Nikishin on 02.05.2018.
-//  Copyright © 2018 Loftymoon. All rights reserved.
-//
-
 import Foundation
 
 protocol StorageServiceProtocol: class {
