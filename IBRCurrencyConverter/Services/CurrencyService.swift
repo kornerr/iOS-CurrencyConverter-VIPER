@@ -86,8 +86,7 @@ class CurrencyService: CurrencyServiceProtocol {
             
             
             for currency in currencies {
-                let name = "\(currency.shortName) : \(currency.fullName)"
-                currencyNames.append(name)
+                currencyNames.append(currency.shortName)
                 currency.index = index
                 
                 if inputCurrency.shortName == currency.shortName {
