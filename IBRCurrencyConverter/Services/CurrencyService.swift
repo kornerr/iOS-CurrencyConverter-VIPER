@@ -63,20 +63,13 @@ class CurrencyService: CurrencyServiceProtocol {
     func saveAllCurrencies(with dict: [String: Any], completion: @escaping (CurrencyError?) -> Swift.Void) {
         currencies = [Currency]()
         currencyNames = [String]()
-        
-        if let dictResults = dict["results"] as! [String: [String: String]]? {
-            if dictResults.count > 0 {
-                
-                for (_, value) in dictResults {
-                    if let fullName = value["currencyName"], let shortName = value["id"] {
-                        let currency = Currency(fullName: fullName, shortName: shortName, ratio: 1, index: 0)
-                        currencies.append(currency)
-                        
-                    }
-                }
-                completion(nil)
-                return
+        if let dictResults = dict["rates"] as? [String: Double] {
+            for (key, value) in dictResults {
+                let currency = Currency(fullName: key, shortName: key, ratio: value, index: 0)
+                currencies.append(currency)
             }
+            completion(nil)
+            return
         }
         completion(CurrencyError(description: "Currencies' data format is wrong"))
     }

@@ -13,7 +13,7 @@ class ServerService: ServerServiceProtocol {
     // MARK: - ServerServiceProtocol methods
     
     var urlRatesSource: String {
-        return "https://free.currencyconverterapi.com"
+        return "https://www.exchangerate-api.com"
     }
     
     func openUrl(with urlString: String) {
@@ -23,7 +23,7 @@ class ServerService: ServerServiceProtocol {
     }
     
     func getAllCurrencies(completion: @escaping ([String: Any]?, Error?) -> Swift.Void) {
-        if let URL = URL(string: URLAllCurrencies) {
+        if let URL = URL(string: url) {
             getJSON(URL: URL, completion: completion)
         }
     }
@@ -66,8 +66,8 @@ class ServerService: ServerServiceProtocol {
         })
         dataTask.resume()
     }
-    
-    private let URLAllCurrencies = "https://free.currencyconverterapi.com/api/v5/currencies"
+
+    private let url = "https://open.er-api.com/v6/latest/USD"
     
     private func URLGetRatio(inputCurrencyShortName: String, outputCurrencyShortName: String) -> String {
         return "https://free.currencyconverterapi.com/api/v5/convert?q=\(inputCurrencyShortName)_\(outputCurrencyShortName)&compact=y"
