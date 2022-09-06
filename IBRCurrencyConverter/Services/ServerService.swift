@@ -29,11 +29,8 @@ class ServerService: ServerServiceProtocol {
     }
     
     func getRatio(inputCurrencyShortName: String, outputCurrencyShortName: String, completion: @escaping ([String: Any]?, Error?) -> Swift.Void) {
-        let URLString = URLGetRatio(inputCurrencyShortName: inputCurrencyShortName, outputCurrencyShortName: outputCurrencyShortName)
-        
-        if let URL = URL(string: URLString) {
-            getJSON(URL: URL, completion: completion)
-        }
+        let stub = [String: Any]()
+        completion(stub, nil)
     }
     
     // MARK: - Private methods
@@ -68,8 +65,4 @@ class ServerService: ServerServiceProtocol {
     }
 
     private let url = "https://open.er-api.com/v6/latest/USD"
-    
-    private func URLGetRatio(inputCurrencyShortName: String, outputCurrencyShortName: String) -> String {
-        return "https://free.currencyconverterapi.com/api/v5/convert?q=\(inputCurrencyShortName)_\(outputCurrencyShortName)&compact=y"
-    }
 }

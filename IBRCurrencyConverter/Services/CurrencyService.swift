@@ -63,9 +63,11 @@ class CurrencyService: CurrencyServiceProtocol {
     func saveAllCurrencies(with dict: [String: Any], completion: @escaping (CurrencyError?) -> Swift.Void) {
         currencies = [Currency]()
         currencyNames = [String]()
+        var id = 0
         if let dictResults = dict["rates"] as? [String: Double] {
             for (key, value) in dictResults {
-                let currency = Currency(fullName: key, shortName: key, ratio: value, index: 0)
+                let currency = Currency(fullName: key, shortName: key, ratio: value, index: id)
+                id = id + 1
                 currencies.append(currency)
             }
             completion(nil)
@@ -110,19 +112,6 @@ class CurrencyService: CurrencyServiceProtocol {
     }
     
     func saveOutputCurrencyRatio(with dict: [String: Any], completion: @escaping (CurrencyError?) -> Swift.Void) {
-        let key = "\(inputCurrency.shortName)_\(outputCurrency.shortName)"
-        
-        if let dictValue = dict[key] as! [String: Double]? {
-            if dictValue.count > 0 {
-                
-                if let val = dictValue["val"] {
-                    outputCurrency.ratio = val
-                    storageService.saveOutputCurrency(with: outputCurrency)
-                    completion(nil)
-                    return
-                }
-            }
-        }
-        completion(CurrencyError(description: "Error in saving ratio for currency"))
+        completion(nil)
     }
 }
