@@ -3,6 +3,8 @@
 * Made minor fixes to build the project with Xcode 14.0
 * Removed copyright notices in Swift files
 * Removed stub AppDelegate methods
+* Moved ServerService to https://www.exchangerate-api.com
+* Removed the ratio request since it's no longer needed
 
 # Original
 
