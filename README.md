@@ -5,6 +5,7 @@
 * Removed stub AppDelegate methods
 * Moved ServerService to https://www.exchangerate-api.com
 * Removed the ratio request since it's no longer needed
+* Added screenshots of the app [scenarious](https://github.com/kornerr/iOS-CurrencyConverter-MM/blob/main/СЦЕНАРИИ.adoc) to img/ directory for easier comparison
 
 # Original
 
